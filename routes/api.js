@@ -1,8 +1,11 @@
 const router = require("express").Router();
+const db = require('../models');
 const Workout = require("../models/Workout");
 
 router.get('/api/workouts', (req, res) => {
     Workout.find({})
+    //db.Workout.find({})
+      //.populate('exercises')
       .then(dbWorkout => {
           res.json(dbWorkout)
       })
@@ -12,7 +15,7 @@ router.get('/api/workouts', (req, res) => {
 })
 
 router.get('/api/workouts/range', (req, res) => {
-    Workout.find().sort({ _id: -1 }).limit(7)
+    Workout.find({}).sort({ _id: -1 }).limit(7)
       .then(dbWorkout => {
           res.json(dbWorkout)
       })
@@ -21,14 +24,28 @@ router.get('/api/workouts/range', (req, res) => {
       })
 })
 
-// router.get('/api/workouts', (req, res) => {
-//     Workout.find({})
-//       .then(dbWorkout => {
-//           res.json(dbWorkout)
-//       })
-//       .catch(err => {
-//           res.json(err)
-//       })
-// })
+router.post('/api/workouts', ({ body }, res) => {
+    Workout.create(body)
+      .then(dbWorkout => {
+          res.json(dbWorkout)
+      })
+      .catch(err => {
+          res.json(err)
+      })
+})
+
+router.put('/api/workouts/:id', (req, res) => {
+    const id = req.params.id;
+    //console.log(req.body)
+    const body = req.body;
+    
+    Workout.findByIdAndUpdate(id, { exercises: [body] }, { new: true })
+      .then(dbWorkout => {
+          res.json(dbWorkout)
+      })
+      .catch(err => {
+          res.json(err)
+      })
+})
 
 module.exports = router;

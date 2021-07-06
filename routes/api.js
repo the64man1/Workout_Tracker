@@ -4,6 +4,7 @@ const Workout = require("../models/Workout");
 
 router.get('/api/workouts', (req, res) => {
     Workout.find({})
+    //Workout.find({ $exp: { $addFields: { totalDuration: { $sum: '$duration'}}}})
     //db.Workout.find({})
       //.populate('exercises')
       .then(dbWorkout => {

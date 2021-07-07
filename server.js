@@ -25,7 +25,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //const routes = require('./controllers');
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost/workouts',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+);
+
 
 app.get('/stats', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/stats.html'));

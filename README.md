@@ -27,7 +27,7 @@ Note: As the Workout Tracker uses MongoDB for database purposes, users must have
     
 Users are free to use these files to build their own Workout Tracker locally, or enjoy the functionality of the site on Heroku.
 
-Deployed site on Heroku: https://aq-tech-blog.herokuapp.com/
+Deployed site on Heroku: https://aq-fitness-tracker.herokuapp.com/
     
 ## License
     

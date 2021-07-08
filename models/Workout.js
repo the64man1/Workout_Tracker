@@ -8,13 +8,6 @@ const WorkoutSchema = new Schema({
         default: Date.now
     },
     exercises: [
-        // {
-        //     type: String,
-        //     name: String,
-        //     weight: Number,
-        //     reps: Number,
-        //     sets: Number,
-        // }
         {
             type: {
                 type: String
@@ -38,10 +31,6 @@ const WorkoutSchema = new Schema({
                 type: Number
             }
         }
-        // {
-        //     type: Schema.Types.ObjectId,
-        //     ref: "Exercise"
-        // }
     ]
 });
 

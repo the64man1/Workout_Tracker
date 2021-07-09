@@ -23,6 +23,8 @@ To use the Workout Tracker, clone the repository by running "git clone `git@gith
 
 Note: As the Workout Tracker uses MongoDB for database purposes, users must have MongoDB installed properly on the local device for the application to work locally.
 
+![Fitness Tracker](https://user-images.githubusercontent.com/74144055/125009367-0ca01c80-e02a-11eb-9f14-b0475f7306de.png)
+
 ## Usage
     
 Users are free to use these files to build their own Workout Tracker locally, or enjoy the functionality of the site on Heroku.
